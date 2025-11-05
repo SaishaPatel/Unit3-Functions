@@ -1,10 +1,10 @@
 # Question 1 - Code Tracing
 # {"key_a": "value1", "key_b": 150, "key_d": 50}
-# "key_c": False
+# False
 
 # Question 2 - Code Tracing
 # 120
-# 60
+# 60.0 (float value)
 
 # Question 3 - Code Writing
 def get_user_bio(user):
