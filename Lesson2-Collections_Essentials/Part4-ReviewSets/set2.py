@@ -12,7 +12,7 @@ def portfolio_value(holdings, prices):
     for key, value in holdings.items():
         multiplied = value * prices[key]
         sum += multiplied
-    return round(sum, 2)
+    return f"{sum:.2f}"
             
 holdings = {"BTC": 0.5, "ETH": 8.2, "SOL": 50}
 prices = {"BTC": 62400, "ETH": 2480, "SOL": 142}
