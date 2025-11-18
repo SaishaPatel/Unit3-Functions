@@ -33,8 +33,8 @@ print(build_profile("gamer42", score=850, rank="Gold"))  # Should return: {'user
 print(build_profile("player1"))  # Should return: {'username': 'player1'}
 
 # Question 5 - Code Tracing
-# 15
-# 18
+# 18.0
+# 15.0
 
 # Question 6:
 def make_notification(user, *messages, urgent=False):
