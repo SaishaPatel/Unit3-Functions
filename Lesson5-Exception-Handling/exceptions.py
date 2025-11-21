@@ -1,22 +1,63 @@
-# Common errors
-# 1 - Division by zero
-# print(10/0)
+def safe_divide(a,b):
+    try:
+        result = a / b
+        return result
+    # except:
+    #     print("Can not divide by zero")
+    #     return None
+    except ZeroDivisionError:
+        print("Can not divide by zero")
+        return None
+    except TypeError:
+        print("That's not a valid number!")
+        return None
+    except:
+        print("An error ocurred...")
 
-# 2 - ValueError
-# print(int("abc"))
+print(safe_divide(10,2)) # 5.0
+print(safe_divide(10,0)) # Can not divide by zero! Returns None
+print(safe_divide(10,"hello"))
 
-# 3 - KeyError
-# grades = {"Bob": 90}
-# print(grades["Bill"])
+def safe_operations(a,b,lst,key,d):
+    try:
+        print(f"Division result:{a/b}") # ZeroDivisionError, TypeError
+        print("Access list element:", lst[2]) #IndexError
+        print("Access Dictionary Key:", d[key]) #KeyError
+        print(f"Add numbers: {a+b}") #TypeError
+    except ZeroDivisionError:
+        print("Cannot divide by zero!")
+    except IndexError:
+        print("List index out of range!")
+    except KeyError:
+        print(f"Key {key} not found!")
+    except TypeError:
+        print("Innvalid types for operation!")
+    except Exception as e:
+        print("Some other error occured", e)
+        
+print(safe_operations(10,2,[1,2], "Tom", {"John": 15}))
+print(safe_operations(10,0,[1,2], "Tom", {"John": 15}))
+print(safe_operations(10,"hello", [1,2], "Tom", {"Tom": 15}))
 
-# 4 - IndexError
-# numbers = [1,2,3]
-# print(numbers[5])
+# Question 1 - Price Per Item Calculator
+def calculate_price_per_item(total_cost, num_items):
+    try:
+        price_per_item = round(total_cost / num_items, 2)
+        return price_per_item
+    except ZeroDivisionError:
+        return "No items to calculation"
+    
+print(calculate_price_per_item(100,4))
+print(calculate_price_per_item(50,0))
+print(calculate_price_per_item(25, 50, 3))
 
-# 5 - NameError
-# print(total)
-# total=10
-
-# SyntaxError
-# for i in range(5)
-# print(i)
+# Question 2: Parse Age from String
+def parse_age(age):
+    try:
+       age_integer = int(age) 
+       return age_integer
+    except ValueError:
+       return None
+print(parse_age("25"))
+print(parse_age("twenty five"))
+print(parse_age("29.5"))
